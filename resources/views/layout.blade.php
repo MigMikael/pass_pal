@@ -16,11 +16,14 @@
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
 
+    <script src="https://cdn.jsdelivr.net/npm/@laragear/webpass@2/dist/webpass.js" defer></script>
+
     @vite(['resources/js/app.js', 'resources/css/app.css'])
     @yield('specific-style')
 </head>
 
 <body>
+    
     @include('_navbar')
     <div class="container-fluid mt-5 p-5 bg-primary text-white text-center">
         <h1>PassPal</h1>

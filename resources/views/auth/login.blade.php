@@ -29,11 +29,16 @@
                         </div>
                     </div>
                     <div class="card-footer text-end">
+                        <button type="button" class="btn btn-secondary" onclick="Util.loginPasskey();">Login with Passkey</button>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </form>
         </div>
+    </div>
+
+    <div class="row mt-3 ms-1 me-1 mb-3">
+
     </div>
 
     @if ($errors->any())

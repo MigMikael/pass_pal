@@ -1,3 +1,5 @@
+import Webpass from "@laragear/webpass"
+
 export function generatePassword(len, upper, nums, special) {
     var length = (len) ? (len) : (10);
     var string = "abcdefghijklmnopqrstuvwxyz"; //to upper 
@@ -33,4 +35,41 @@ export function generatePassword(len, upper, nums, special) {
     return password.substring(0, len);
     // alert(password.substring(0, len));
     // console.log(password.substring(0, len));
+}
+
+export async function registerPasskey() {
+    if (Webpass.isUnsupported()) {
+        alert("Your browser doesn't support WebAuthn.")
+    }
+    const {
+        success, error
+    } = await Webpass.attest("/webauthn/register/options", "/webauthn/register")
+
+    console.log("is success", success)
+
+    if (success) {
+        window.location.replace("/pwitems")
+        alert("Register passkey success!.")
+    } else {
+        console.log('error', error)
+        alert("Register passkey fail!.")
+    }
+}
+
+export async function loginPasskey() {
+    if (Webpass.isUnsupported()) {
+        alert("Your browser doesn't support WebAuthn.")
+    }
+
+    const { success, error } = await Webpass.assert(
+        "/webauthn/login/options",
+        "/webauthn/login",
+    )
+
+    if (success) {
+        window.location.replace("/pwitems")
+    }
+    else {
+        console.log('error', error)
+    }
 }
