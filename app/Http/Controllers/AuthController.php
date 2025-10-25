@@ -44,7 +44,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($validated)) {
             $request->session()->regenerate();
-            return redirect()->action([PwItemController::class, 'index']);
+            return redirect()->action([SiteController::class, 'index']);
         }
 
         throw ValidationException::withMessages([

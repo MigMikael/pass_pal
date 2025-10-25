@@ -48,7 +48,7 @@ export async function registerPasskey() {
     console.log("is success", success)
 
     if (success) {
-        window.location.replace("/pwitems")
+        window.location.replace("/sites")
         alert("Register passkey success!.")
     } else {
         console.log('error', error)
@@ -67,7 +67,7 @@ export async function loginPasskey() {
     )
 
     if (success) {
-        window.location.replace("/pwitems")
+        window.location.replace("/sites")
     }
     else {
         console.log('error', error)

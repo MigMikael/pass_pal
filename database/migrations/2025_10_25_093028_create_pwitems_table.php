@@ -14,11 +14,15 @@ return new class extends Migration
         Schema::create('pwitems', function (Blueprint $table) {
             $table->id();
             $table->uuid('slug')->unique();
-            $table->string('site')->nullable()->index();
+            $table->bigInteger('site_id')->unsigned();
             $table->text('username');
             $table->text('password');
-            $table->text('note')->nullable()->index();
+            $table->text('note')->nullable();
             $table->timestamps();
+            $table->foreign('site_id')
+                ->references('id')
+                ->on('sites')
+                ->onCascade('delete');
         });
     }
 

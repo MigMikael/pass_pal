@@ -11,27 +11,10 @@
 @endsection
 
 @section('content')
-    @if (session('success'))
-        <div class="row g-2 mt-3">
-            <div class="col-12">
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('success', 'Success !') }}
-                </div>
-            </div>
-        </div>
-    @endif
-    @if (session('fail'))
-        <div class="row g-2 mt-3">
-            <div class="col-12">
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('fail', 'Fail !') }}
-                </div>
-            </div>
-        </div>
-    @endif
+    @include('_alert')
     <div class="row g-2 mt-3 mb-3">
         <div class="col-9">
-            <form action="{{ url('pwitems/search') }}" method="GET">
+            <form action="{{ url('sites/search') }}" method="GET">
                 <div class="input-group">
                     <input type="search" class="form-control" placeholder="Search" name="query"
                         value="{{ request()->get('query', '') }}">
@@ -49,14 +32,24 @@
         </div>
     </div>
     <hr>
-    <div class="row g-2 mb-3 mb-3">
-        @foreach ($pwItems as $item)
-            @include('pwitem._card', ['item' => $item])
-        @endforeach
+    <div class="row g-2 mt-3 mb-3">
+        <div class="col-12">
+            <div class="list-group">
+                @foreach ($sites as $site)
+                    <a href="{{ url('sites/' . $site->slug) }}"
+                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <p>{{ $site->name }}</p>
+                        <span>
+                            <i class="bi bi-arrow-right-circle"></i>
+                        </span>
+                    </a>
+                @endforeach
+            </div>
+        </div>
     </div>
-    <div class="row g-2 mb-3 mb-3">
-        <div class="col-12 text-center">
-            {{ $pwItems->links() }}
+    <div class="row g-2 mt-3 mb-3 justify-content-center">
+        <div class="col-12">
+            {{ $sites->links() }}
         </div>
     </div>
 @endsection

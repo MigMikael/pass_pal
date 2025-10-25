@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PwItem extends Model
 {
@@ -11,16 +12,11 @@ class PwItem extends Model
 
     protected $fillable = [
         'slug',
-        'site',
+        'site_id',
         'username',
         'password',
         'note'
     ];
-
-    // public function getRouteKeyName()
-    // {
-    //     return 'slug';
-    // }
 
     /**
      * Get the attributes that should be cast.
@@ -33,5 +29,10 @@ class PwItem extends Model
             'username' => 'encrypted',
             'password' => 'encrypted',
         ];
+    }
+
+    public function site(): BelongsTo
+    {
+        return $this->belongsTo(Site::class);
     }
 }

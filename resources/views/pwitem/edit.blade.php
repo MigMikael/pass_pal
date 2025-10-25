@@ -8,7 +8,7 @@
             <form action="{{ url('pwitems/' . $pwItem->slug) }}" method="POST">
                 <div class="card">
                     <div class="card-header">
-                        <h2>Edit: {{ $pwItem->site }}</h2>
+                        <h2>Edit: {{ $pwItem->site->name }}</h2>
                     </div>
                     <div class="card-body">
                         @csrf
@@ -18,8 +18,23 @@
                                 <strong>Site:</strong>
                             </label>
                             <input type="text" class="form-control" id="site" placeholder="" name="site"
-                                value="{{ $pwItem->site }}">
+                                value="{{ $pwItem->site->name }}" list="sites">
+                            <datalist id="sites">
+                                @foreach ($siteOptions as $site)
+                                    <option value="{{ $site->name }}">
+                                @endforeach
+                            </datalist>
                         </div>
+                        {{-- <div class="mb-3 mt-3">
+                            <label for="site" class="form-label">
+                                <strong>Site:</strong>
+                            </label>
+                            <select class="form-select" id="site" name="site">
+                                @foreach ($siteOptions as $site)
+                                    <option value="{{ $site->name }}">{{ $site->name }}</option>
+                                @endforeach
+                            </select>
+                        </div> --}}
                         <div class="mb-3">
                             <label for="site" class="form-label">
                                 <strong>Username:</strong>
@@ -38,7 +53,7 @@
                             <label for="note" class="form-label">
                                 <strong>Note:</strong>
                             </label>
-                            <textarea class="form-control" rows="5" id="note" name="note">{{ $pwItem->note }}</textarea>
+                            <textarea class="form-control" rows="3" id="note" name="note">{{ $pwItem->note }}</textarea>
                         </div>
                     </div>
                     <div class="card-footer text-end">

@@ -8,7 +8,7 @@
             <ul class="navbar-nav me-auto">
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/pwitems') }}">List</a>
+                        <a class="nav-link" href="{{ url('/sites') }}">List</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/pwitems/create') }}">Create</a>
