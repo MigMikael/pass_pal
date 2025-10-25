@@ -5,7 +5,7 @@
 @section('specific-script')
     <script>
         function viewPassword() {
-            var passInput = document.getElementById("pasw");
+            var passInput = document.getElementById("password");
             if (passInput.type === "password") {
                 passInput.type = "text";
             } else {
@@ -30,7 +30,7 @@
                     <h2>{{ $pwItem->site }}</h2>
                 </div>
                 <div class="card-body">
-                    <label class="form-label">
+                    <label class="form-label" for="username">
                         <strong>Username:</strong>
                     </label>
                     <div class="input-group mb-3 input-group-lg">
@@ -40,20 +40,22 @@
                             <i class="bi bi-copy"></i>
                         </button>
                     </div>
-                    <label class="form-label">
+                    <label class="form-label" for="password">
                         <strong>Password:</strong>
                     </label>
                     <div class="input-group mb-5 input-group-lg">
                         <input type="password" class="form-control" placeholder="Password" value="{{ $pwItem->password }}"
-                            readonly id="pasw">
+                            readonly id="password">
                         <button class="btn btn-outline-secondary" onclick="viewPassword();">
                             <i class="bi bi-eye"></i>
                         </button>
-                        <button class="btn btn-primary" onclick="copyToClipboard('pasw');">
+                        <button class="btn btn-primary" onclick="copyToClipboard('password');">
                             <i class="bi bi-copy"></i>
                         </button>
                     </div>
                     <p><strong>Note:</strong> {{ $pwItem->note }}</p>
+                    <p><strong>Create At:</strong> {{ $pwItem->created_at->format('D d/m/Y H:i:s') }}</p>
+                    <p><strong>Update At:</strong> {{ $pwItem->updated_at->format('D d/m/Y H:i:s') }}</p>
                 </div>
                 <div class="card-footer text-end">
                     <form action="{{ url('pwitems/' . $pwItem->slug) }}" method="POST">
