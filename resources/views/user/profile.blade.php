@@ -100,9 +100,16 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary" onclick="Util.registerPasskey();">
-                        Register Passkey
-                    </button>
+                    @if ($user->registered_passkey)
+                        <button type="button" class="btn btn-outline-primary" onclick="Util.registerPasskey();">
+                            Re-register Passkey
+                        </button>
+                    @else
+                        <button type="button" class="btn btn-primary" onclick="Util.registerPasskey();">
+                            Register Passkey
+                        </button>
+                    @endif
+
                 </div>
             </div>
         </div>

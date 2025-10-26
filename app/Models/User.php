@@ -23,6 +23,7 @@ class User extends Authenticatable implements WebAuthnAuthenticatable
         'name',
         'email',
         'password',
+        'registered_passkey'
     ];
 
     /**

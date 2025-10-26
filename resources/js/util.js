@@ -46,7 +46,7 @@ export async function registerPasskey() {
     } = await Webpass.attest("/webauthn/register/options", "/webauthn/register")
 
     if (success) {
-        window.location.replace("/sites")
+        window.location.replace("/profile")
         alert("Register passkey success!.")
     } else {
         console.log('error', error)
