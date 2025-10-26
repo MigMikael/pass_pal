@@ -10,6 +10,19 @@
     </style>
 @endsection
 
+{{-- @section('specific-script')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search)
+            const isExpired = urlParams.has('expired')
+
+            if (isExpired) {
+                alert("To keep your passwords safe, PassPal locks after 5 minutes of inactivity")
+            }
+        }, false);
+    </script>
+@endsection --}}
+
 @section('content')
     @include('_alert')
     <div class="row g-2 mt-3 mb-3">

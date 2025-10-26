@@ -25,7 +25,6 @@
                 </button>
             </div>
             <p><strong>Note:</strong> {{ $pwItem->note }}</p>
-            {{-- <p><strong>Create At:</strong> {{ $pwItem->created_at->format('D d/m/Y H:i:s') }}</p> --}}
             <p><strong>Update At:</strong> {{ $pwItem->updated_at->format('D d/m/Y H:i:s') }}</p>
         </div>
         <div class="card-footer text-end">
@@ -36,7 +35,7 @@
                     <i class="bi bi-pencil-square"></i>
                     Edit
                 </a>
-                <a href='#' onclick='this.parentNode.submit(); return false;'
+                <a href='#' onclick='confirm("Confirm delete?") == true && this.parentNode.submit(); return false;'
                     class="btn btn-outline-danger btn-sm">
                     <i class="bi bi-trash"></i>
                     Delete

@@ -19,6 +19,14 @@
             copyText.setSelectionRange(0, 50);
             navigator.clipboard.writeText(copyText.value);
         }
+
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                setTimeout(() => {
+                    window.location.replace("/sites")
+                }, 300000);
+            }
+        }, false);
     </script>
 @endsection
 
