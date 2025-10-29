@@ -15,18 +15,33 @@
         }
 
         function reset() {
-            document.getElementById("len").value = 15;
+            document.getElementById("len").value = 10;
             document.getElementById("upper").checked = true;
             document.getElementById("nums").checked = true;
             document.getElementById("special").checked = true;
             document.getElementById("genPass").value = "";
+            generate();
         }
 
         function copyToClipboard() {
-            var copyText = document.getElementById("genPass");
+            const copyText = document.getElementById("genPass");
             copyText.select();
             copyText.setSelectionRange(0, 50);
             navigator.clipboard.writeText(copyText.value);
+        }
+
+        function increase() {
+            const len = parseInt(document.getElementById("len").value);
+            if (len < 50) {
+                document.getElementById("len").value = len + 1;
+            }
+        }
+
+        function decrease() {
+            const len = parseInt(document.getElementById("len").value);
+            if (len > 8) {
+                document.getElementById("len").value = len - 1;
+            }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -36,16 +51,22 @@
 @endsection
 
 @section('content')
-    <div class="row mt-3 ms-1 me-1">
+    <div class="row g-2 mt-3 mb-3">
         <div class="col-12">
-            <div class="card">
+            <div class="card shadow-sm">
                 <div class="card-header">
                     <h2>Strong Password Generator</h2>
                 </div>
                 <div class="card-body">
-                    <div class="input-group input-group-lg mt-3">
+                    <div class="input-group input-group mt-3">
                         <span class="input-group-text">Length</span>
-                        <input type="number" class="form-control" id="len" value="15" min="8" max="50">
+                        <input type="number" class="form-control" id="len" value="10" min="8" max="50">
+                        <button class="btn btn-outline-danger" onclick="decrease();">
+                            <i class="bi bi-dash-lg"></i>
+                        </button>
+                        <button class="btn btn-outline-success" onclick="increase();">
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
                     </div>
                     <div class="form-check mt-3">
                         <input type="checkbox" class="form-check-input" id="upper" checked>

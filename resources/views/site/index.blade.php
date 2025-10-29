@@ -28,7 +28,7 @@
     <div class="row g-2 mt-3 mb-3">
         <div class="col-9">
             <form action="{{ url('sites/search') }}" method="GET">
-                <div class="input-group">
+                <div class="input-group shadow-sm">
                     <input type="search" class="form-control" placeholder="Search" name="query"
                         value="{{ request()->get('query', '') }}">
                     <button class="btn btn-success" type="submit">
@@ -38,7 +38,7 @@
             </form>
         </div>
         <div class="col-3 d-grid">
-            <a href="{{ url('pwitems/create') }}" class="btn btn-primary btn-block">
+            <a href="{{ url('pwitems/create') }}" class="btn btn-primary btn-block shadow-sm">
                 <i class="bi bi-plus"></i>
                 Add
             </a>
@@ -47,7 +47,7 @@
     <hr>
     <div class="row g-2 mt-3 mb-3">
         <div class="col-12">
-            <div class="list-group">
+            <div class="list-group shadow-sm">
                 @foreach ($sites as $site)
                     <a href="{{ url('sites/' . $site->slug) }}"
                         class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">

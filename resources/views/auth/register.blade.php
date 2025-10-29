@@ -3,10 +3,10 @@
 @section('title', 'PassPal Register')
 
 @section('content')
-    <div class="row mt-3 ms-1 me-1 mb-3">
+    <div class="row g-2 mt-3 mb-3">
         <div class="col-12">
             <form action="{{ url('/register') }}" method="POST">
-                <div class="card">
+                <div class="card shadow-sm">
                     <div class="card-header">
                         <h2>Register</h2>
                     </div>
@@ -50,7 +50,7 @@
         </div>
     </div>
     @if ($errors->any())
-        <div class="row mt-3 ms-1 me-1 mb-3">
+        <div class="row g-2 mt-3 mb-3">
             <div class="col-12">
                 @foreach ($errors->all() as $error)
                     <div class="alert alert-danger alert-dismissible">

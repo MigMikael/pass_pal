@@ -3,10 +3,10 @@
 @section('title', 'Edit Password Item')
 
 @section('content')
-    <div class="row mt-3 ms-1 me-1 mb-3">
+    <div class="row mt-3 mb-3">
         <div class="col-12">
             <form action="{{ url('pwitems/' . $pwItem->slug) }}" method="POST">
-                <div class="card">
+                <div class="card shadow-sm">
                     <div class="card-header">
                         <h2>Edit: {{ $pwItem->site->name }}</h2>
                     </div>

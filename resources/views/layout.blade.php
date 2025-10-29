@@ -17,19 +17,54 @@
         rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/@laragear/webpass@2/dist/webpass.js" defer></script>
+    <style>
+        body {
+            background-color: #cfd8dc;
+        }
+
+        #background {
+            background: linear-gradient(132deg, #000000, #00ff00, #0000ff, #e60073, #ff0000, #ffffff);
+            background-size: 400% 400%;
+            animation: BackgroundGradient 15s ease infinite;
+            width: 100%;
+            height: 30vh;
+        }
+
+        #custom-h1 {
+            position: absolute;
+            left: 50%;
+            top: 18%;
+            transform: translateX(-50%) translateY(-50%);
+            color: #fff;
+            text-align: center;
+            font-size: 3em;
+            padding: 5px;
+        }
+
+        @keyframes BackgroundGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
 
     @vite(['resources/js/app.js', 'resources/css/app.css'])
     @yield('specific-style')
 </head>
 
 <body>
-    
     @include('_navbar')
-    <div class="container-fluid mt-5 p-5 bg-primary text-white text-center">
-        <h1>PassPal</h1>
-        <p>My own password manager.</p>
+    <div id="background">
+        <h1 id="custom-h1">PassPal</h1>
     </div>
-
     <div class="container">
         @yield('content')
     </div>

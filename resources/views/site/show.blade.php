@@ -6,10 +6,13 @@
     <script>
         function viewPassword(targetElementId) {
             var passInput = document.getElementById(targetElementId);
+            var childIcon = document.getElementById("icon_" + targetElementId);
             if (passInput.type === "password") {
                 passInput.type = "text";
+                childIcon.className = "bi bi-eye-fill"
             } else {
                 passInput.type = "password";
+                childIcon.className = "bi bi-eye-slash-fill"
             }
         }
 
@@ -31,13 +34,22 @@
 @endsection
 
 @section('content')
-    <div class="row mt-3 mb-3">
-        <h2>Site: {{ $site->name }}</h2>
+    <div class="row g-2 mt-3 mb-3">
+        <div class="col-sm-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2>Site: {{ $site->name }}</h2>
+                </div>
+            </div>
+        </div>
     </div>
     @include('_alert')
     <div class="row g-2 mt-3 mb-3">
         @foreach ($pwItems as $pwItem)
-            @include('site._card', ['pwItem' => $pwItem])
+            @include('site._card', [
+                'pwItem' => $pwItem,
+                'iteration' => $loop->iteration,
+            ])
         @endforeach
     </div>
 @endsection
