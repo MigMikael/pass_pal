@@ -20,7 +20,10 @@ class PwItemController extends Controller
 
     public function create(Request $request)
     {
-        $siteOptions = Site::select('slug', 'name')->orderBy('updated_at', 'desc')->get();
+        $siteOptions = Site::select('name', 'updated_at')
+            ->orderBy('updated_at', 'desc')
+            ->distinct('name')
+            ->get();
         $genPass = $request['genPass'];
 
         return view('pwitem.create', [
@@ -59,7 +62,11 @@ class PwItemController extends Controller
 
     public function edit(PwItem $pwItem)
     {
-        $siteOptions = Site::select('slug', 'name')->orderBy('updated_at', 'desc')->get();
+        $siteOptions = Site::select('name')
+            ->orderBy('updated_at', 'desc')
+            ->distinct('name')
+            ->get();
+
         return view('pwitem.edit', [
             'pwItem' => $pwItem,
             'siteOptions' => $siteOptions
@@ -99,7 +106,7 @@ class PwItemController extends Controller
         $site->loadCount('pwItems');
         if ($site->pw_items_count == 0) {
             $site->delete();
-            
+
             return redirect()
                 ->action([SiteController::class, 'index'])
                 ->with('success', 'Delete Success');
