@@ -6,6 +6,7 @@ use App\Models\PwItem;
 use App\Models\Site;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class PwItemController extends Controller
 {
@@ -32,9 +33,11 @@ class PwItemController extends Controller
     {
         $validated = $request->validate($this->validateRule);
 
+        $authUserId = $request->user()->id;
+
         $site = Site::firstOrCreate(
             ['name' => $validated['site']],
-            ['slug' => Str::orderedUuid(), 'url' => '']
+            ['slug' => Str::orderedUuid(), 'user_id' => $authUserId, 'url' => '']
         );
 
         $newPwItem = [
@@ -67,9 +70,11 @@ class PwItemController extends Controller
     {
         $validated = $request->validate($this->validateRule);
 
+        $authUserId = $request->user()->id;
+
         $site = Site::firstOrCreate(
             ['name' => $validated['site']],
-            ['slug' => Str::orderedUuid(), 'url' => '']
+            ['slug' => Str::orderedUuid(), 'user_id' => $authUserId, 'url' => '']
         );
 
         $updatePwItem = [

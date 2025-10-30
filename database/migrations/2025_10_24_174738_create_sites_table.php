@@ -14,9 +14,14 @@ return new class extends Migration
         Schema::create('sites', function (Blueprint $table) {
             $table->id();
             $table->uuid('slug')->unique();
+            $table->bigInteger('user_id')->unsigned();
             $table->string('name')->nullable()->index();
             $table->text('url')->nullable();
             $table->timestamps();
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onCascade('delete');
         });
     }
 

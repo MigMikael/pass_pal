@@ -23,6 +23,14 @@ class AuthController extends Controller
             'password' => 'required|string|min:8|confirmed'
         ]);
 
+        $allowMail = env('ALLOW_REGISTRATION_MAIL', '');
+
+        if (!str_contains($allowMail, $validated['email'])) {
+            throw ValidationException::withMessages([
+                'credentials' => 'Sorry, not allow to register'
+            ]);
+        }
+
         $user = User::create($validated);
 
         Auth::login($user);

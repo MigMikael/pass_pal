@@ -10,9 +10,11 @@ class SiteController extends Controller
 {
     protected $paginateItem = 10;
 
-    public function index()
+    public function index(Request $request)
     {
-        $sites = Site::orderBy('updated_at', 'desc')
+        $user = $request->user();
+        $sites = Site::where('user_id', $user->id)
+            ->orderBy('updated_at', 'desc')
             ->paginate($this->paginateItem)
             ->withQueryString();
 
@@ -25,10 +27,13 @@ class SiteController extends Controller
     {
         $q = $request->input('query');
 
+        $user = $request->user();
+
         $sites = Site::query()
             ->select(['slug', 'name', 'url'])
+            ->where('user_id', '=', $user->id)
             ->where(function (Builder $subQuery) use ($q) {
-                $subQuery->where('name', 'like', '%' . $q . '%')
+                $subQuery->orWhere('name', 'like', '%' . $q . '%')
                     ->orWhere('url', 'like', '%' . $q . '%');
             })->orderBy('updated_at', 'desc')
             ->paginate($this->paginateItem)

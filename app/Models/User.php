@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laragear\WebAuthn\Contracts\WebAuthnAuthenticatable;
@@ -47,5 +48,10 @@ class User extends Authenticatable implements WebAuthnAuthenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function sites(): HasMany
+    {
+        return $this->hasMany(Site::class);
     }
 }
