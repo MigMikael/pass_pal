@@ -15,7 +15,7 @@
                     </li>
                 @endauth
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">About</a>
+                    <a class="nav-link" href="{{ url('/about') }}">About</a>
                 </li>
             </ul>
             @guest

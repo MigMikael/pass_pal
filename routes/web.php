@@ -16,6 +16,10 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['guest', 'throttle:6,1'])->controller(AuthController::class)->group(function () {
