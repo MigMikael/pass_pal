@@ -16,11 +16,9 @@
                     <h2>About PassPal</h2>
                 </div>
                 <div class="card-body">
-                    
+                    <p>Personal password manager</p>
                 </div>
-                <div class="card-footer">
-                    
-                </div>
+                {{-- <div class="card-footer"></div> --}}
             </div>
         </div>
     </div>

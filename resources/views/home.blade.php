@@ -15,12 +15,12 @@
         }
 
         function reset() {
-            document.getElementById("len").value = 10;
+            document.getElementById("len").value = 12;
             document.getElementById("upper").checked = true;
             document.getElementById("nums").checked = true;
             document.getElementById("special").checked = true;
             document.getElementById("genPass").value = "";
-            generate();
+            // generate();
         }
 
         function copyToClipboard() {
@@ -60,7 +60,7 @@
                 <div class="card-body">
                     <div class="input-group input-group mt-3">
                         <span class="input-group-text">Length</span>
-                        <input type="number" class="form-control" id="len" value="10" min="8" max="50">
+                        <input type="number" class="form-control" id="len" value="12" min="8" max="50">
                         <button class="btn btn-outline-danger" onclick="decrease();">
                             <i class="bi bi-dash-lg"></i>
                         </button>
