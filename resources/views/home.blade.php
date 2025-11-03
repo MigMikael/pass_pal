@@ -58,13 +58,13 @@
                     <h2>Strong Password Generator</h2>
                 </div>
                 <div class="card-body">
-                    <div class="input-group input-group mt-3">
+                    <div class="input-group input-group-sm mt-3">
                         <span class="input-group-text">Length</span>
                         <input type="number" class="form-control" id="len" value="12" min="8" max="50">
-                        <button class="btn btn-outline-danger" onclick="decrease();">
+                        <button class="btn btn-danger" onclick="decrease();">
                             <i class="bi bi-dash-lg"></i>
                         </button>
-                        <button class="btn btn-outline-success" onclick="increase();">
+                        <button class="btn btn-success" onclick="increase();">
                             <i class="bi bi-plus-lg"></i>
                         </button>
                     </div>
@@ -88,14 +88,14 @@
                     </button>
                 </div>
                 <div class="card-footer">
-                    <form action="{{ url('/pwitems/create') }}" method="POST">
+                    <form action="{{ url('/pass-pal/pwitems/create') }}" method="POST">
                         <div class="row row-gap-3">
                             @csrf
                             @method('post')
                             @auth
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" class="form-control form-control-lg fw-bold" id="genPass"
+                                        <input type="text" class="form-control fw-bold" id="genPass"
                                             name="genPass">
                                         <button class="btn btn-outline-secondary" onclick="copyToClipboard();" type="button">
                                             <i class="bi bi-copy"></i>
@@ -111,7 +111,7 @@
                             @guest
                                 <div class="col-sm-12">
                                     <div class="input-group">
-                                        <input type="text" class="form-control form-control-lg fw-bold" id="genPass"
+                                        <input type="text" class="form-control fw-bold" id="genPass"
                                             name="genPass">
                                         <button class="btn btn-outline-secondary" onclick="copyToClipboard();" type="button">
                                             <i class="bi bi-copy"></i>

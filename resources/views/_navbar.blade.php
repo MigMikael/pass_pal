@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url('/') }}">PassPal</a>
+        <a class="navbar-brand" href="{{ url('/pass-pal') }}">PassPal</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -8,20 +8,20 @@
             <ul class="navbar-nav me-auto">
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/sites') }}">List</a>
+                        <a class="nav-link" href="{{ url('/pass-pal/sites') }}">List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/pwitems/create') }}">Create</a>
+                        <a class="nav-link" href="{{ url('/pass-pal/pwitems/create') }}">Create</a>
                     </li>
                 @endauth
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/about') }}">About</a>
+                    <a class="nav-link" href="{{ url('/pass-pal/about') }}">About</a>
                 </li>
             </ul>
             @guest
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/login') }}">Login</a>
+                        <a class="nav-link" href="{{ url('/pass-pal/login') }}">Login</a>
                     </li>
                 </ul>
             @endguest
@@ -33,12 +33,12 @@
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{ url('/profile') }}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/pass-pal/profile') }}">Profile</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <form action="{{ url('/logout') }}" method="POST">
+                                <form action="{{ url('/pass-pal/logout') }}" method="POST">
                                     @csrf
                                     <a class="dropdown-item" href="#"
                                         onclick='this.parentNode.submit(); return false;'>Logout</a>

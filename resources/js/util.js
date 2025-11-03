@@ -43,10 +43,10 @@ export async function registerPasskey() {
     }
     const {
         success, error
-    } = await Webpass.attest("/webauthn/register/options", "/webauthn/register")
+    } = await Webpass.attest("/pass-pal/webauthn/register/options", "/pass-pal/webauthn/register")
 
     if (success) {
-        window.location.replace("/profile")
+        window.location.replace("/pass-pal/profile")
         alert("Register passkey success!.")
     } else {
         console.log('error', error)
@@ -60,12 +60,12 @@ export async function loginPasskey() {
     }
 
     const { success, error } = await Webpass.assert(
-        "/webauthn/login/options",
-        "/webauthn/login",
+        "/pass-pal/webauthn/login/options",
+        "/pass-pal/webauthn/login",
     )
 
     if (success) {
-        window.location.replace("/sites")
+        window.location.replace("/pass-pal/sites")
     }
     else {
         console.log('error', error)

@@ -26,7 +26,7 @@
         document.addEventListener('visibilitychange', function() {
             if (document.hidden) {
                 setTimeout(() => {
-                    window.location.replace("/sites")
+                    window.location.replace("/pass-pal/sites")
                 }, 300000);
             }
         }, false);

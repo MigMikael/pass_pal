@@ -5,7 +5,7 @@
 @section('content')
     <div class="row g-2 mt-3 mb-3">
         <div class="col-12">
-            <form action="{{ url('/register') }}" method="POST">
+            <form action="{{ url('/pass-pal/register') }}" method="POST">
                 <div class="card shadow-sm">
                     <div class="card-header">
                         <h2>Register</h2>

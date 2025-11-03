@@ -5,7 +5,7 @@
 @section('content')
     <div class="row g-2 mt-3 mb-3">
         <div class="col-12">
-            <form action="{{ url('/login') }}" method="POST">
+            <form action="{{ url('/pass-pal/login') }}" method="POST">
                 <div class="card shadow-sm">
                     <div class="card-header">
                         <h2>Login</h2>

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    {{-- @PwaHead --}}
     <title>@yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +26,7 @@
         #background {
             background: linear-gradient(132deg, #000000, #00ff00, #0000ff, #e60073, #ff0000, #ffffff);
             background-size: 400% 400%;
-            animation: BackgroundGradient 15s ease infinite;
+            animation: BackgroundGradient 5s ease infinite;
             width: 100%;
             height: 30vh;
         }
@@ -69,6 +70,7 @@
         @yield('content')
     </div>
     @yield('specific-script')
+    {{-- @RegisterServiceWorkerScript --}}
 </body>
 
 </html>

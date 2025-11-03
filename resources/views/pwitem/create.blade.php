@@ -5,7 +5,7 @@
 @section('content')
     <div class="row mt-3 mb-3">
         <div class="col-12">
-            <form action="{{ url('/pwitems') }}" method="POST">
+            <form action="{{ url('/pass-pal/pwitems') }}" method="POST">
                 <div class="card shadow-sm">
                     <div class="card-header">
                         <h2>Create Password Item</h2>

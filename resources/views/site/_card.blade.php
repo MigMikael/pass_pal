@@ -28,7 +28,7 @@
             <p><strong>Update At:</strong> {{ $pwItem->updated_at->format('D d/m/Y - H:i') }}</p>
         </div>
         <div class="card-footer text-end">
-            <form action="{{ url('pwitems/' . $pwItem->slug) }}" method="POST" class="clearfix">
+            <form action="{{ url('/pass-pal/pwitems/' . $pwItem->slug) }}" method="POST" class="clearfix">
                 @csrf
                 @method('DELETE')
                 <a href='#' onclick='confirm("Confirm delete?") == true && this.parentNode.submit(); return false;'
@@ -36,7 +36,7 @@
                     <i class="bi bi-trash"></i>
                     Delete
                 </a>
-                <a href="{{ url('pwitems/' . $pwItem->slug . '/edit') }}" class="btn btn-outline-warning btn-sm float-end">
+                <a href="{{ url('/pass-pal/pwitems/' . $pwItem->slug . '/edit') }}" class="btn btn-outline-warning btn-sm float-end">
                     <i class="bi bi-pencil-square"></i>
                     Edit
                 </a>
