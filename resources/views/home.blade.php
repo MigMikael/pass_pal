@@ -55,10 +55,10 @@
         <div class="col-12">
             <div class="card shadow-sm">
                 <div class="card-header">
-                    <h2>Strong Password Generator</h2>
+                    <h3>Strong Password Generator</h3>
                 </div>
                 <div class="card-body">
-                    <div class="input-group input-group-sm mt-3">
+                    <div class="input-group mt-3">
                         <span class="input-group-text">Length</span>
                         <input type="number" class="form-control" id="len" value="12" min="8" max="50">
                         <button class="btn btn-danger" onclick="decrease();">
@@ -94,7 +94,7 @@
                             @method('post')
                             @auth
                                 <div class="col-sm-9">
-                                    <div class="input-group">
+                                    <div class="input-group input-group-lg">
                                         <input type="text" class="form-control fw-bold" id="genPass"
                                             name="genPass">
                                         <button class="btn btn-outline-secondary" onclick="copyToClipboard();" type="button">
@@ -110,7 +110,7 @@
                             @endauth
                             @guest
                                 <div class="col-sm-12">
-                                    <div class="input-group">
+                                    <div class="input-group input-group-lg">
                                         <input type="text" class="form-control fw-bold" id="genPass"
                                             name="genPass">
                                         <button class="btn btn-outline-secondary" onclick="copyToClipboard();" type="button">

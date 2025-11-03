@@ -5,7 +5,7 @@
     {{-- @PwaHead --}}
     <title>@yield('title')</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
@@ -28,13 +28,13 @@
             background-size: 400% 400%;
             animation: BackgroundGradient 5s ease infinite;
             width: 100%;
-            height: 30vh;
+            height: 25vh;
         }
 
         #custom-h1 {
             position: absolute;
             left: 50%;
-            top: 18%;
+            top: 16%;
             transform: translateX(-50%) translateY(-50%);
             color: #fff;
             text-align: center;
