@@ -90,14 +90,15 @@
 @section('content')
     <div class="row g-2 mt-3 mb-3">
         <div class="col-12">
-            <div class="card shadow-sm">
+            <div class="card shadow-sm rounded-4">
                 <div class="card-header">
-                    <h3>Strong Password Generator</h3>
+                    <h3 class="mt-3 mb-3">Strong Password Generator</h3>
                 </div>
                 <div class="card-body">
                     <div class="input-group mt-3">
                         <span class="input-group-text">Length</span>
-                        <input type="number" class="form-control" id="len" value="12" min="8" max="50">
+                        <input type="number" class="form-control" id="len" value="12" min="8"
+                            max="50">
                         <button class="btn btn-danger" onclick="decrease();">
                             <i class="bi bi-dash-lg"></i>
                         </button>
@@ -118,47 +119,45 @@
                         <label class="form-check-label">Include Special Characters</label>
                     </div>
                     <hr>
-                    <button class="btn btn-primary" onclick="generate();">Generate Password</button>
-                    <button class="btn btn-default" onclick="reset();">
-                        <i class="bi bi-arrow-clockwise"></i>
-                        Reset
-                    </button>
+                    <div class="clearfix">
+                        <div class="float-start">
+                            <button class="btn btn-default" onclick="reset();">
+                                <i class="bi bi-arrow-clockwise"></i>
+                                Reset
+                            </button>
+                        </div>
+                        <div class="float-end">
+                            <button class="btn btn-primary" onclick="generate();">
+                                Generate Password
+                                {{-- <i class="bi bi-arrow-repeat"></i> --}}
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <form action="{{ url('/pass-pal/pwitems/create') }}" method="POST">
-                        <div class="row row-gap-3">
+                        <div class="row row-gap-3 mt-3 mb-3">
                             @csrf
                             @method('post')
-                            @auth
-                                <div class="col-sm-9">
-                                    <div class="input-group input-group-lg">
-                                        <input type="text" class="form-control fw-bold" id="genPass" name="genPass">
-                                        <button class="btn btn-outline-secondary" onclick="copyToClipboard();" type="button">
-                                            <i class="bi bi-copy"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3 d-grid">
-                                    <button type="submit" class="btn btn-outline-primary btn-lg btn-block">
-                                        <i class="bi bi-plus"></i>Add
+
+                            <div class="col-sm-12">
+                                <div class="input-group input-group-lg">
+                                    <input type="text" class="form-control fw-bold" id="genPass" name="genPass">
+                                    <button class="btn btn-outline-secondary" onclick="copyToClipboard();" type="button">
+                                        <i class="bi bi-copy"></i>
                                     </button>
-                                </div>
-                            @endauth
-                            @guest
-                                <div class="col-sm-12">
-                                    <div class="input-group input-group-lg">
-                                        <input type="text" class="form-control fw-bold" id="genPass" name="genPass">
-                                        <button class="btn btn-outline-secondary" onclick="copyToClipboard();" type="button">
-                                            <i class="bi bi-copy"></i>
+                                    @auth
+                                        <button type="submit" class="btn btn-outline-primary">
+                                            <i class="bi bi-box-arrow-up-right"></i>
                                         </button>
-                                    </div>
+                                    @endauth
+
                                 </div>
-                            @endguest
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
 @endsection

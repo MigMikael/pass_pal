@@ -58,9 +58,9 @@
     <div class="row g-2 mt-3 mb-3">
         <div class="col-12">
             <form action="{{ url('/pass-pal/profile') }}" method="POST">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm rounded-4">
                     <div class="card-header">
-                        <h2>User Profile</h2>
+                        <h2 class="mt-3 mb-3">User Profile</h2>
                     </div>
                     <div class="card-body">
                         @csrf
@@ -94,7 +94,7 @@
                                 name="password_confirmation" disabled>
                         </div>
                     </div>
-                    <div class="card-footer text-end">
+                    <div class="card-footer text-end pb-3 pt-3">
                         <button type="button" class="btn btn-outline-secondary" onclick="editUserInfo();">Edit User
                             Info</button>
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -116,14 +116,16 @@
     @endif
     <div class="row g-2 mt-3 mb-3">
         <div class="col-12">
-            <div class="card shadow-sm">
+            <div class="card shadow-sm rounded-4">
                 <div class="card-body">
                     @if ($user->registered_passkey)
-                        <button type="button" class="btn btn-outline-primary" onclick="registerPasskey();">
+                        <button type="button" class="btn btn-outline-primary mt-3 mb-3" onclick="registerPasskey();">
+                            <i class="bi bi-key"></i>
                             Re-register Passkey
                         </button>
                     @else
-                        <button type="button" class="btn btn-primary" onclick="registerPasskey();">
+                        <button type="button" class="btn btn-primary mt-3 mb-3" onclick="registerPasskey();">
+                            <i class="bi bi-key"></i>
                             Register Passkey
                         </button>
                     @endif

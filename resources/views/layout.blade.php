@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     {{-- @PwaHead --}}
@@ -20,7 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@laragear/webpass@2/dist/webpass.js" defer></script>
     <style>
         body {
-            background-color: #cfd8dc;
+            background-color: #212121;
             font-family: "IBM Plex Sans Thai Looped", sans-serif;
             font-optical-sizing: auto;
             font-weight: 400;
@@ -31,12 +31,12 @@
         }
 
         #background {
-            margin-top: 45px;
+            margin-top: 50px;
             background: linear-gradient(132deg, #000000, #00ff00, #0000ff, #e60073, #ff0000, #ffffff);
             background-size: 400% 400%;
             animation: BackgroundGradient 5s ease infinite;
             width: 100%;
-            height: 25vh;
+            height: 18vh;
             align-items: center;
             justify-content: center;
             text-align: center;
@@ -63,12 +63,16 @@
 <body>
     @include('_navbar')
     <div id="background">
-        {{-- <h1 id="custom-h1">
-            PassPal
-        </h1> --}}
-        <a href="{{ url('/pass-pal') }}">
-            <img src="{{ url('pass-pal/logo') }}" alt="PassPal" width="120" height="120" class="rounded-circle">
-        </a>
+        @auth
+            <a href="{{ url('/pass-pal/sites') }}">
+                <img src="{{ url('pass-pal/logo') }}" alt="PassPal" width="100" height="100" class="rounded-circle">
+            </a>
+        @endauth
+        @guest
+            <a href="{{ url('/pass-pal') }}">
+                <img src="{{ url('pass-pal/logo') }}" alt="PassPal" width="100" height="100" class="rounded-circle">
+            </a>
+        @endguest
     </div>
     <div class="container">
         @yield('content')

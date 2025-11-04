@@ -9,7 +9,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Laragear\WebAuthn\Http\Routes as WebAuthnRoutes;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home');
 })->name('welcome');
 
 Route::withoutMiddleware([VerifyCsrfToken::class])->group(function () {

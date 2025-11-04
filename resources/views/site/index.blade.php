@@ -28,17 +28,17 @@
     <div class="row g-2 mt-3 mb-3">
         <div class="col-9">
             <form action="{{ url('/pass-pal/sites/search') }}" method="GET">
-                <div class="input-group shadow-sm">
-                    <input type="search" class="form-control" placeholder="Search" name="query"
+                <div class="input-group">
+                    <input type="search" class="form-control shadow-sm" placeholder="Search" name="query"
                         value="{{ request()->get('query', '') }}">
-                    <button class="btn btn-success" type="submit">
+                    <button class="btn btn-success shadow" type="submit">
                         <i class="bi bi-search"></i>
                     </button>
                 </div>
             </form>
         </div>
         <div class="col-3 d-grid">
-            <a href="{{ url('/pass-pal/pwitems/create') }}" class="btn btn-primary btn-block shadow-sm">
+            <a href="{{ url('/pass-pal/pwitems/create') }}" class="btn btn-primary btn-block shadow">
                 <i class="bi bi-plus"></i>
                 Add
             </a>

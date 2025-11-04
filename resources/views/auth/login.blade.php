@@ -29,9 +29,9 @@
     <div class="row g-2 mt-3 mb-3">
         <div class="col-12">
             <form action="{{ url('/pass-pal/login') }}" method="POST">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm rounded-4">
                     <div class="card-header">
-                        <h2>Login</h2>
+                        <h2 class="mt-3 mb-3">Login</h2>
                     </div>
                     <div class="card-body">
                         @csrf
@@ -51,10 +51,8 @@
                                 required>
                         </div>
                     </div>
-                    <div class="card-footer text-end">
-                        <button type="button" class="btn btn-secondary" onclick="loginPasskey();">Login with
-                            Passkey</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="card-footer text-end pt-3 pb-3">
+                        <button type="submit" class="btn btn-primary">Login</button>
                     </div>
                 </div>
             </form>
@@ -62,7 +60,20 @@
     </div>
 
     <div class="row g-2 mt-3 mb-3">
-
+        <hr>
+        <button type="button" class="btn btn-dark rounded-4" data-bs-toggle="collapse" data-bs-target="#pk-collapse">
+            Try another way
+        </button>
+        <div id="pk-collapse" class="collapse">
+            <div class="card shadow-sm rounded-4">
+                <div class="card-body mx-auto">
+                    <button type="button" class="btn btn-secondary" onclick="loginPasskey();">
+                        <i class="bi bi-key"></i>
+                        Login with Passkey
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
     @if ($errors->any())

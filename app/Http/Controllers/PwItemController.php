@@ -62,7 +62,7 @@ class PwItemController extends Controller
 
     public function edit(PwItem $pwItem)
     {
-        $siteOptions = Site::select('name')
+        $siteOptions = Site::select('name', 'updated_at')
             ->orderBy('updated_at', 'desc')
             ->distinct('name')
             ->get();

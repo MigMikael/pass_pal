@@ -3,12 +3,12 @@
 @section('title', 'Edit Password Item')
 
 @section('content')
-    <div class="row mt-3 mb-3">
+    <div class="row g-2 mt-3 mb-3">
         <div class="col-12">
             <form action="{{ url('/pass-pal/pwitems/' . $pwItem->slug) }}" method="POST">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm rounded-4">
                     <div class="card-header">
-                        <h2>Edit: {{ $pwItem->site->name }}</h2>
+                        <h2 class="mt-3 mb-3">Edit: {{ $pwItem->site->name }}</h2>
                     </div>
                     <div class="card-body">
                         @csrf
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     <div class="card-footer text-end">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary mt-3 mb-3">Submit</button>
                     </div>
                 </div>
             </form>

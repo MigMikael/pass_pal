@@ -1,5 +1,5 @@
 <div class="col-sm-6">
-    <div class="card shadow-sm">
+    <div class="card shadow-sm rounded-4">
         <div class="card-body">
             <label class="form-label" for="username_{{ $iteration }}">
                 <strong>Username:</strong>
@@ -18,17 +18,17 @@
                 <input type="password" class="form-control" placeholder="Password" value="{{ $pwItem->password }}"
                     readonly id="password_{{ $iteration }}">
                 <button class="btn btn-secondary" onclick="viewPassword('password_{{ $iteration }}');">
-                    <i class="bi bi-eye-slash-fill" id="icon_password_{{ $iteration }}"></i>
+                    <i class="bi bi-eye-slash" id="icon_password_{{ $iteration }}"></i>
                 </button>
                 <button class="btn btn-primary" onclick="copyToClipboard('password_{{ $iteration }}');">
                     <i class="bi bi-copy"></i>
                 </button>
             </div>
-            <p><strong>Note:</strong> {{ $pwItem->note }}</p>
-            <p><strong>Update At:</strong> {{ $pwItem->updated_at->format('D d/m/Y - H:i') }}</p>
+            <p><strong><u>Note:</u></strong> {{ $pwItem->note }}</p>
+            <p><strong><u>Update At:</u></strong> {{ $pwItem->updated_at->format('D - d/m/Y - H:i') }}</p>
         </div>
         <div class="card-footer text-end">
-            <form action="{{ url('/pass-pal/pwitems/' . $pwItem->slug) }}" method="POST" class="clearfix">
+            <form action="{{ url('/pass-pal/pwitems/' . $pwItem->slug) }}" method="POST" class="clearfix mt-1 mb-1">
                 @csrf
                 @method('DELETE')
                 <a href='#' onclick='confirm("Confirm delete?") == true && this.parentNode.submit(); return false;'
