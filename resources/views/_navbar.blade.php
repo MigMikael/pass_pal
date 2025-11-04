@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url('/pass-pal') }}">PassPal</a>
+        <a class="navbar-brand" href="{{ url('/pass-pal') }}">
+            {{-- <img src="{{ URL::asset('logo.png') }}" alt="PassPal" width="30" height="30" class="rounded-circle"> --}}
+            PassPal
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>

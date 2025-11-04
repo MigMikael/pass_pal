@@ -2,6 +2,29 @@
 
 @section('title', 'PassPal Login')
 
+@section('specific-script')
+    <script>
+        async function loginPasskey() {
+            if (Webpass.isUnsupported()) {
+                alert("Your browser doesn't support WebAuthn.")
+            }
+
+            const {
+                success,
+                error
+            } = await Webpass.assert(
+                "/pass-pal/webauthn/login/options",
+                "/pass-pal/webauthn/login",
+            )
+
+            if (success) {
+                window.location.replace("/pass-pal/sites")
+            } else {
+                console.log('error', error)
+            }
+        }
+    </script>
+@endsection
 @section('content')
     <div class="row g-2 mt-3 mb-3">
         <div class="col-12">
@@ -29,7 +52,8 @@
                         </div>
                     </div>
                     <div class="card-footer text-end">
-                        <button type="button" class="btn btn-secondary" onclick="Util.loginPasskey();">Login with Passkey</button>
+                        <button type="button" class="btn btn-secondary" onclick="loginPasskey();">Login with
+                            Passkey</button>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>

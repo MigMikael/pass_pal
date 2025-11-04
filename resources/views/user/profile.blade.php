@@ -15,6 +15,24 @@
             passElement.disabled = !passElement.disabled
             confElement.disabled = !confElement.disabled
         }
+
+        async function registerPasskey() {
+            if (Webpass.isUnsupported()) {
+                alert("Your browser doesn't support WebAuthn.")
+            }
+            const {
+                success,
+                error
+            } = await Webpass.attest("/pass-pal/webauthn/register/options", "/pass-pal/webauthn/register")
+
+            if (success) {
+                window.location.replace("/pass-pal/profile")
+                alert("Register passkey success!.")
+            } else {
+                console.log('error', error)
+                alert("Register passkey fail!.")
+            }
+        }
     </script>
 @endsection
 
@@ -101,11 +119,11 @@
             <div class="card shadow-sm">
                 <div class="card-body">
                     @if ($user->registered_passkey)
-                        <button type="button" class="btn btn-outline-primary" onclick="Util.registerPasskey();">
+                        <button type="button" class="btn btn-outline-primary" onclick="registerPasskey();">
                             Re-register Passkey
                         </button>
                     @else
-                        <button type="button" class="btn btn-primary" onclick="Util.registerPasskey();">
+                        <button type="button" class="btn btn-primary" onclick="registerPasskey();">
                             Register Passkey
                         </button>
                     @endif

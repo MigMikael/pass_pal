@@ -21,25 +21,25 @@
     <style>
         body {
             background-color: #cfd8dc;
+            font-family: "IBM Plex Sans Thai Looped", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
         }
 
         #background {
+            margin-top: 45px;
             background: linear-gradient(132deg, #000000, #00ff00, #0000ff, #e60073, #ff0000, #ffffff);
             background-size: 400% 400%;
             animation: BackgroundGradient 5s ease infinite;
             width: 100%;
             height: 25vh;
-        }
-
-        #custom-h1 {
-            position: absolute;
-            left: 50%;
-            top: 16%;
-            transform: translateX(-50%) translateY(-50%);
-            color: #fff;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            font-size: 3em;
-            padding: 5px;
+            display: flex;
         }
 
         @keyframes BackgroundGradient {
@@ -56,15 +56,18 @@
             }
         }
     </style>
-
-    @vite(['resources/js/app.js', 'resources/css/app.css'])
     @yield('specific-style')
 </head>
 
 <body>
     @include('_navbar')
     <div id="background">
-        <h1 id="custom-h1">PassPal</h1>
+        {{-- <h1 id="custom-h1">
+            PassPal
+        </h1> --}}
+        <a href="{{ url('/pass-pal') }}">
+            <img src="{{ URL::asset('logo.png') }}" alt="PassPal" width="120" height="120" class="rounded-circle">
+        </a>
     </div>
     <div class="container">
         @yield('content')
