@@ -27,6 +27,7 @@
             font-style: normal;
             font-variation-settings:
                 "wdth" 100;
+            touch-action: manipulation;
         }
 
         #background {
@@ -72,6 +73,11 @@
     <div class="container">
         @yield('content')
     </div>
+    <script>
+        document.ondblclick = function(e) {
+            e.preventDefault();
+        }
+    </script>
     @yield('specific-script')
     {{-- @RegisterServiceWorkerScript --}}
 </body>
