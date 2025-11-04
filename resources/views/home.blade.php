@@ -142,7 +142,7 @@
 
                             <div class="col-sm-12">
                                 <div class="input-group input-group-lg">
-                                    <input type="text" class="form-control fw-bold" id="genPass" name="genPass">
+                                    <input type="text" class="form-control fw-bold" id="genPass" name="genPass" readonly>
                                     <button class="btn btn-outline-secondary" onclick="copyToClipboard();" type="button">
                                         <i class="bi bi-copy"></i>
                                     </button>
