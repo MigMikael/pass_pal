@@ -27,6 +27,11 @@ Route::get('/pass-pal/about', function () {
     return view('about');
 })->name('about');
 
+Route::get('/pass-pal/logo', function () {
+    $pathToFile = storage_path('app/public/logo.png');
+    return response()->file($pathToFile, ['Content-Type' => 'image/png']);
+})->name('logo');
+
 Route::post('/pass-pal/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['guest', 'throttle:6,1'])->controller(AuthController::class)->group(function () {

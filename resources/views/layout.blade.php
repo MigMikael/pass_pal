@@ -66,7 +66,7 @@
             PassPal
         </h1> --}}
         <a href="{{ url('/pass-pal') }}">
-            <img src="{{ URL::asset('logo.png') }}" alt="PassPal" width="120" height="120" class="rounded-circle">
+            <img src="{{ url('pass-pal/logo') }}" alt="PassPal" width="120" height="120" class="rounded-circle">
         </a>
     </div>
     <div class="container">
