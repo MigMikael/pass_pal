@@ -8,6 +8,10 @@ use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Laragear\WebAuthn\Http\Routes as WebAuthnRoutes;
 
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');
+
 Route::withoutMiddleware([VerifyCsrfToken::class])->group(function () {
     WebAuthnRoutes::register(
         attest: 'pass-pal/webauthn/register',
