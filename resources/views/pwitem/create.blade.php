@@ -18,36 +18,26 @@
                                 <strong>Site:</strong>
                             </label>
                             <input type="text" class="form-control" id="site" placeholder="" name="site"
-                                value="{{ old('site') }}" list="sites">
+                                value="{{ old('site') }}" list="sites" autocapitalize="off" autocomplete="off">
                             <datalist id="sites">
                                 @foreach ($siteOptions as $site)
                                     <option value="{{ $site->name }}">
                                 @endforeach
                             </datalist>
                         </div>
-                        {{-- <div class="mb-3 mt-3">
-                            <label for="site" class="form-label">
-                                <strong>Site:</strong>
-                            </label>
-                            <select class="form-select" id="site" name="site">
-                                @foreach ($siteOptions as $site)
-                                    <option value="{{ $site->name }}">{{ $site->name }}</option>
-                                @endforeach
-                            </select>
-                        </div> --}}
                         <div class="mb-3">
                             <label for="site" class="form-label">
                                 <strong>Username:</strong>
                             </label>
                             <input type="text" class="form-control form-control-lg" id="username" placeholder=""
-                                name="username" value="{{ old('username') }}">
+                                name="username" value="{{ old('username') }}" autocapitalize="off" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label for="site" class="form-label">
                                 <strong>Password:</strong>
                             </label>
                             <input type="text" class="form-control form-control-lg" id="password" placeholder=""
-                                name="password" value="{{ $genPass ?? '' }}">
+                                name="password" value="{{ $genPass ?? '' }}" autocapitalize="off" autocomplete="off">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="note" class="form-label">
