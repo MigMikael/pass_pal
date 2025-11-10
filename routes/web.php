@@ -19,6 +19,8 @@ Route::withoutMiddleware([VerifyCsrfToken::class])->group(function () {
     );
 });
 
+Route::post('/pass-pal/logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::get('/pass-pal', function () {
     return view('home');
 })->name('home');
@@ -27,12 +29,30 @@ Route::get('/pass-pal/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/pass-pal/logo', function () {
+Route::get('/pass-pal/logo.png', function () {
     $pathToFile = storage_path('app/public/logo.png');
     return response()->file($pathToFile, ['Content-Type' => 'image/png']);
 })->name('logo');
 
-Route::post('/pass-pal/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/pass-pal/favicon.ico', function () {
+    $pathToFile = storage_path('app/public/favicon.ico');
+    return response()->file($pathToFile, ['Content-Type' => 'image/x-icon']);
+})->name('favicon');
+
+Route::get('/pass-pal/offline.html', function () {
+    $pathToFile = storage_path('app/public/offline.html');
+    return response()->file($pathToFile, ['Content-Type' => 'text/html']);
+})->name('offline');
+
+Route::get('/pass-pal/sw.js', function () {
+    $pathToFile = storage_path('app/public/sw.js');
+    return response()->file($pathToFile, ['Content-Type' => 'text/javascript']);
+})->name('service-worker');
+
+Route::get('/pass-pal/manifest.json', function () {
+    $pathToFile = storage_path('app/public/manifest.json');
+    return response()->file($pathToFile, ['Content-Type' => 'application/json']);
+})->name('manifest');
 
 Route::middleware(['guest', 'throttle:6,1'])->controller(AuthController::class)->group(function () {
     Route::get('/pass-pal/register', 'showRegister')->name('show.register');

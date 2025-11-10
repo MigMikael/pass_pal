@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="dark">
 
 <head>
-    {{-- @PwaHead --}}
+    @PwaHead
     <title>@yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
@@ -65,12 +65,12 @@
     <div id="background">
         @auth
             <a href="{{ url('/pass-pal/sites') }}">
-                <img src="{{ url('pass-pal/logo') }}" alt="PassPal" width="100" height="100" class="rounded-circle">
+                <img src="{{ url('pass-pal/logo.png') }}" alt="PassPal" width="100" height="100" class="rounded-circle">
             </a>
         @endauth
         @guest
             <a href="{{ url('/pass-pal') }}">
-                <img src="{{ url('pass-pal/logo') }}" alt="PassPal" width="100" height="100" class="rounded-circle">
+                <img src="{{ url('pass-pal/logo.png') }}" alt="PassPal" width="100" height="100" class="rounded-circle">
             </a>
         @endguest
     </div>
@@ -83,7 +83,7 @@
         }
     </script>
     @yield('specific-script')
-    {{-- @RegisterServiceWorkerScript --}}
+    @RegisterServiceWorkerScript
 </body>
 
 </html>
