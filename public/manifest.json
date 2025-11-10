@@ -1,7 +1,7 @@
 {
     "name": "PassPal",
-    "short_name": "PsP",
-    "start_url": "/",
+    "short_name": "PassPal",
+    "start_url": "/pass-pal",
     "background_color": "#01579b",
     "description": "A personal password manager app.",
     "display": "fullscreen",
