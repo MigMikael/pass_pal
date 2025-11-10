@@ -20,7 +20,7 @@ return [
 
     'manifest' => [
         'name' => 'PassPal',
-        'short_name' => 'PsP',
+        'short_name' => 'PassPal',
         'background_color' => '#01579b',
         'display' => 'fullscreen',
         'description' => 'A personal password manager app.',

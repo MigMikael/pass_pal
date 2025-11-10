@@ -60,7 +60,6 @@
     </div>
 
     <div class="row g-2 mt-3 mb-3">
-        <hr>
         <button type="button" class="btn btn-dark rounded-4" data-bs-toggle="collapse" data-bs-target="#pk-collapse">
             Try another way
         </button>
@@ -74,6 +73,10 @@
                 </div>
             </div>
         </div>
+        <hr class="mt-3">
+        <a type="button" class="btn btn-dark rounded-4" href="{{ url('pass-pal/register') }}">
+            Create an account
+        </a>
     </div>
 
     @if ($errors->any())

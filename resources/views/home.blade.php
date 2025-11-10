@@ -85,6 +85,7 @@
             generate();
         }, false);
     </script>
+    @RegisterServiceWorkerScript
 @endsection
 
 @section('content')
