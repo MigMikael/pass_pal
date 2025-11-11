@@ -85,7 +85,44 @@
             generate();
         }, false);
     </script>
-    @RegisterServiceWorkerScript
+    {{-- @RegisterServiceWorkerScript --}}
+    <script src="{{ url('/pass-pal/sw.js') }}"></script>
+    <script>
+        "use strict";
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/pass-pal/sw.js", {
+                scope: "/pass-pal"
+            }).then(
+                (registration) => {
+                    console.log("Service worker registration succeeded:");
+                },
+                (error) => {
+                    console.log("Service worker registration failed", error);
+                }
+            );
+        } else {
+            console.log("Service workers are not supported.");
+        }
+        let deferredPrompt;
+
+        function showInstallPromotion() {
+            document.getElementById("install-prompt").style.display = "block"
+        }
+        window.addEventListener("load", (() => {
+            if (window.matchMedia("(display-mode: standalone)").matches) {
+                document.getElementById("install-prompt").style.display = "none"
+            }
+        })), window.addEventListener("beforeinstallprompt", (e => {
+            e.preventDefault(), deferredPrompt = e, showInstallPromotion();
+            document.getElementById("install-button").addEventListener("click", (() => {
+                deferredPrompt.prompt(), deferredPrompt.userChoice.then((e => {
+                    deferredPrompt = null
+                }))
+            }))
+        })), window.addEventListener("appinstalled", (() => {
+            document.getElementById("install-prompt").style.display = "none"
+        }));
+    </script>
 @endsection
 
 @section('content')
@@ -143,7 +180,8 @@
 
                             <div class="col-sm-12">
                                 <div class="input-group input-group-lg">
-                                    <input type="text" class="form-control fw-bold" id="genPass" name="genPass" readonly>
+                                    <input type="text" class="form-control fw-bold" id="genPass" name="genPass"
+                                        readonly>
                                     <button class="btn btn-outline-secondary" onclick="copyToClipboard();" type="button">
                                         <i class="bi bi-copy"></i>
                                     </button>
