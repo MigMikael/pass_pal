@@ -54,10 +54,13 @@ Route::get('/pass-pal/manifest.json', function () {
     return response()->file($pathToFile, ['Content-Type' => 'application/json']);
 })->name('manifest');
 
-Route::middleware(['guest', 'throttle:6,1'])->controller(AuthController::class)->group(function () {
+Route::middleware(['guest'])->controller(AuthController::class)->group(function () {
     Route::get('/pass-pal/register', 'showRegister')->name('show.register');
-    Route::post('/pass-pal/register', 'register')->name('register');
     Route::get('/pass-pal/login', 'showLogin')->name('show.login');
+});
+
+Route::middleware(['guest', 'throttle:6,1'])->controller(AuthController::class)->group(function () {
+    Route::post('/pass-pal/register', 'register')->name('register');
     Route::post('/pass-pal/login', 'login')->name('login');
 });
 

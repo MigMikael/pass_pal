@@ -28,7 +28,7 @@
             font-variation-settings: "wdth" 100;
             touch-action: manipulation;
         }
-
+        
         * {
             box-sizing: border-box;
         }
