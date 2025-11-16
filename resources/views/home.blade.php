@@ -91,7 +91,7 @@
         "use strict";
         if ("serviceWorker" in navigator) {
             navigator.serviceWorker.register("/pass-pal/sw.js", {
-                scope: "/pass-pal"
+                scope: "/pass-pal/"
             }).then(
                 (registration) => {
                     console.log("Service worker registration succeeded:");
