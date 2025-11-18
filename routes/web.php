@@ -36,7 +36,7 @@ Route::get('/pass-pal/logo.png', function () {
 
 Route::get('/pass-pal/favicon.ico', function () {
     $pathToFile = storage_path('app/public/favicon.ico');
-    return response()->file($pathToFile, ['Content-Type' => 'image/x-icon']);
+    return response()->file($pathToFile, ['Content-Type' => 'image/vnd.microsoft.icon']);
 })->name('favicon');
 
 Route::get('/pass-pal/offline.html', function () {
