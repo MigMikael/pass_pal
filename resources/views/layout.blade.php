@@ -4,8 +4,8 @@
 <head>
     {{-- @PwaHead --}}
     <meta name="theme-color" content="#01579b">
-    <link rel="apple-touch-icon" href="https://micky-services.theworkpc.com/pass-pal/logo.png">
-    <link rel="manifest" href="https://micky-services.theworkpc.com/pass-pal/manifest.json">
+    <link rel="apple-touch-icon" href="{{ url('/pass-pal/logo.png')}}">
+    <link rel="manifest" href="{{ url('/pass-pal/manifest.json')}}">
     
     <title>@yield('title')</title>
     <link rel="icon" href="{{ url('/pass-pal/favicon.ico')}}" type="image/x-icon">
