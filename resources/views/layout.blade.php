@@ -5,7 +5,7 @@
     {{-- @PwaHead --}}
     <meta name="theme-color" content="#01579b">
     <link rel="apple-touch-icon" href="{{ url('/pass-pal/logo.png')}}">
-    <link rel="manifest" href="{{ url('/pass-pal/manifest.json')}}">
+    <link rel="manifest" href="{{ url('/pass-pal/manifest.json')}}" crossorigin="use-credentials">
     
     <title>@yield('title')</title>
     <link rel="icon" href="{{ url('/pass-pal/favicon.ico')}}" type="image/x-icon">
